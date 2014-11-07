@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>G:/Programming/TestingSystem/LodePNG.h</itemPath>
+      <itemPath>G:/Programming/TestingSystem/PNGConverter.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/TestingSystem.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/ui_TestingSystem.h</itemPath>
     </logicalFolder>
@@ -20,6 +21,7 @@
                    projectFiles="true">
       <itemPath>G:/Programming/TestingSystem/LodePNG.cpp</itemPath>
       <itemPath>Main.cpp</itemPath>
+      <itemPath>G:/Programming/TestingSystem/PNGConverter.cpp</itemPath>
       <itemPath>G:/Programming/TestingSystem/TestingSystem.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -58,6 +60,16 @@
             flavor2="0">
       </item>
       <item path="G:/Programming/TestingSystem/LodePNG.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/PNGConverter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/PNGConverter.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -125,6 +137,16 @@
             flavor2="0">
       </item>
       <item path="G:/Programming/TestingSystem/LodePNG.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/PNGConverter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/PNGConverter.h"
             ex="false"
             tool="3"
             flavor2="0">
