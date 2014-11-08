@@ -11,10 +11,9 @@
 class PNGConverter {
 public:
     PNGConverter();
-    void convert(std::string filename, TestingSystem::TImage *img);
+    void convert(std::string filename);
     virtual ~PNGConverter();
 private:
-    std::ofstream pbmFile;
     void resize(int *mid, int height, int width, int *counter);
 };
 

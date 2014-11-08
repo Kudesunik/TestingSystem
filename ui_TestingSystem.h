@@ -139,7 +139,7 @@ public:
         digitalImageButton->setGeometry(QRect(150, 530, 131, 23));
         loadedImageButton = new QPushButton(centralwidget);
         loadedImageButton->setObjectName(QStringLiteral("loadedImageButton"));
-        loadedImageButton->setEnabled(true);
+        loadedImageButton->setEnabled(false);
         loadedImageButton->setGeometry(QRect(10, 530, 131, 23));
         recognizedImageButton = new QPushButton(centralwidget);
         recognizedImageButton->setObjectName(QStringLiteral("recognizedImageButton"));

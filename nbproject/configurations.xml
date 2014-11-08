@@ -15,6 +15,8 @@
       <itemPath>G:/Programming/TestingSystem/LICENSE</itemPath>
       <itemPath>G:/Programming/TestingSystem/README.md</itemPath>
       <itemPath>G:/Programming/TestingSystem/TestingSystem.ui</itemPath>
+      <itemPath>G:/Programming/TestingSystem/nbproject/qt-Debug.pro</itemPath>
+      <itemPath>G:/Programming/TestingSystem/nbproject/qt-Release.pro</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -46,6 +48,14 @@
       </toolsSet>
       <qt>
         <modules>core gui widgets</modules>
+        <defs>
+          <Elem>SOURCES -= G:/Programming/TestingSystem/LodePNG.cpp G:/Programming/TestingSystem/PNGConverter.cpp G:/Programming/TestingSystem/TestingSystem.cpp Main.cpp</Elem>
+          <Elem>SOURCES += LodePNG.cpp PNGConverter.cpp TestingSystem.cpp Main.cpp</Elem>
+          <Elem>HEADERS -= G:/Programming/TestingSystem/LodePNG.h G:/Programming/TestingSystem/PNGConverter.h G:/Programming/TestingSystem/TestingSystem.h G:/Programming/TestingSystem/ui_TestingSystem.h</Elem>
+          <Elem>HEADERS += LodePNG.h PNGConverter.h TestingSystem.h ui_TestingSystem.h</Elem>
+          <Elem>FORMS -= G:/Programming/TestingSystem/TestingSystem.ui</Elem>
+          <Elem>FORMS += TestingSystem.ui</Elem>
+        </defs>
       </qt>
       <compileType>
       </compileType>
@@ -94,6 +104,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="G:/Programming/TestingSystem/nbproject/qt-Debug.pro"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/nbproject/qt-Release.pro"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="G:/Programming/TestingSystem/ui_TestingSystem.h"
             ex="false"
             tool="3"
@@ -111,6 +131,14 @@
       <qt>
         <buildMode>1</buildMode>
         <modules>core gui widgets</modules>
+        <defs>
+          <Elem>SOURCES -= G:/Programming/TestingSystem/LodePNG.cpp G:/Programming/TestingSystem/PNGConverter.cpp G:/Programming/TestingSystem/TestingSystem.cpp Main.cpp</Elem>
+          <Elem>SOURCES += LodePNG.cpp PNGConverter.cpp TestingSystem.cpp Main.cpp</Elem>
+          <Elem>HEADERS -= G:/Programming/TestingSystem/LodePNG.h G:/Programming/TestingSystem/PNGConverter.h G:/Programming/TestingSystem/TestingSystem.h G:/Programming/TestingSystem/ui_TestingSystem.h</Elem>
+          <Elem>HEADERS += LodePNG.h PNGConverter.h TestingSystem.h ui_TestingSystem.h</Elem>
+          <Elem>FORMS -= G:/Programming/TestingSystem/TestingSystem.ui</Elem>
+          <Elem>FORMS += TestingSystem.ui</Elem>
+        </defs>
       </qt>
       <compileType>
         <cTool>
@@ -167,6 +195,16 @@
             flavor2="0">
       </item>
       <item path="G:/Programming/TestingSystem/TestingSystem.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/nbproject/qt-Debug.pro"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/nbproject/qt-Release.pro"
             ex="false"
             tool="3"
             flavor2="0">

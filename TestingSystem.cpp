@@ -11,7 +11,22 @@ PNGConverter *converter = new PNGConverter();
 
 TestingSystem::TestingSystem() {
     widget.setupUi(this);
+    clearTImage();
+    qgs = new QGraphicsScene(widget.pictureView);
     setupGUI();
+}
+
+void TestingSystem::clearTImage() {
+    int h, w;
+    
+    imgStruct.mx = 0;
+    imgStruct.my = 0;
+    
+    for (h = 0; h < 1000; h++) {
+        for (w = 0; w < 1000; w++) {
+            imgStruct.img[h][w] = 0;
+        }
+    }
 }
 
 void TestingSystem::setupGUI() {
@@ -27,14 +42,14 @@ void TestingSystem::setupGUI() {
 void TestingSystem::loadImage() {
     logger -> debug("[Loading image] Start...");
     QString fileName = QFileDialog::getOpenFileName(this, tr("Открыть файл"), "", tr("PNG (*.*)"));
-    qgs = new QGraphicsScene(widget.pictureView);
     qgs -> setSceneRect(qgs -> sceneRect());
     widget.pictureView -> setScene(qgs);
-    qpm = *(new QPixmap());
     widget.loadedImageButton -> setEnabled(true);
     filename = fileName.toStdString();
     logger -> debug("[Loading image] Filename writed: %s", filename.c_str());
     showLoadedImage();
+    widget.loadedImageButton -> setEnabled(true);
+    widget.recognizeButton -> setEnabled(true);
     logger -> debug("[Loading image] Done!");
 }
 
@@ -48,7 +63,9 @@ void TestingSystem::showLoadedImage() {
 }
 
 void TestingSystem::recognize() {
-    
+    logger -> debug("[Recognize] Start recognizing");
+    converter -> convert(filename);
+    logger -> debug("[Recognize] Done!");
 }
 
 void TestingSystem::exit() {
@@ -56,6 +73,29 @@ void TestingSystem::exit() {
     QCoreApplication::quit();
 }
 
-TestingSystem::~TestingSystem() {
+/**
+ * Looks like I can't create static structure...
+ * So, I can use this method to fill it from another class.
+ * BTW: Multi-dimensional arrays are evil!
+ * @param img
+ * @param mx
+ * @param my
+ */
+void TestingSystem::fillTImageStruct(int *img, int mx, int my) {
+    int h, w;
     
+    imgStruct.mx = mx;
+    imgStruct.my = my;
+    
+    for (h = 0; h < my; h++) {
+        for (w = 0; w < mx; w++) {
+            imgStruct.img[h][w] = img[h * (mx - 1) + h + w];
+        }
+    }
+}
+
+TestingSystem::~TestingSystem() {
+    delete(logger);
+    delete(converter);
+    delete(qgs);
 }

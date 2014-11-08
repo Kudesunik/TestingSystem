@@ -8,9 +8,11 @@ class TestingSystem : public QMainWindow {
 public:
     TestingSystem();
     
-    static QMessageLogger* logger;
+    static void fillTImageStruct(int *img, int mx, int my);
     
-    typedef struct TImage {
+    static QMessageLogger *logger;
+    
+    typedef struct {
         int img[1000][1000];
         int mx;
         int my;
@@ -26,8 +28,9 @@ public slots:
     
 private:
     void setupGUI();
+    void clearTImage();
     Ui::TestingSystem widget;
-    QGraphicsScene* qgs;
+    QGraphicsScene *qgs;
     QPixmap qpm;
     std::string filename;
 };
