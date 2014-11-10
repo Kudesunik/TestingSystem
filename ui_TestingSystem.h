@@ -72,7 +72,6 @@ public:
     QFrame *line_4;
     QMenuBar *menubar;
     QMenu *menu;
-    QMenu *menu_2;
     QMenu *menu_3;
     QMenu *menu_4;
     QStatusBar *statusbar;
@@ -242,8 +241,6 @@ public:
         menubar->setGeometry(QRect(0, 0, 800, 21));
         menu = new QMenu(menubar);
         menu->setObjectName(QStringLiteral("menu"));
-        menu_2 = new QMenu(menubar);
-        menu_2->setObjectName(QStringLiteral("menu_2"));
         menu_3 = new QMenu(menubar);
         menu_3->setObjectName(QStringLiteral("menu_3"));
         menu_4 = new QMenu(menubar);
@@ -255,7 +252,6 @@ public:
 
         menubar->addAction(menu->menuAction());
         menubar->addAction(menu_3->menuAction());
-        menubar->addAction(menu_2->menuAction());
         menubar->addAction(menu_4->menuAction());
         menu->addAction(openImageMenu);
         menu->addAction(action);
@@ -267,8 +263,6 @@ public:
         menu->addAction(printMenu);
         menu->addSeparator();
         menu->addAction(exitMenu);
-        menu_2->addAction(recognitionParamMenu);
-        menu_2->addAction(saveParamMenu);
         menu_3->addAction(addTestMenu);
         menu_3->addAction(addGroupMenu);
         menu_3->addAction(addStudentMenu);
@@ -320,7 +314,6 @@ public:
         correctAnswersLabel->setText(QApplication::translate("TestingSystem", "\320\235\320\265\321\200\320\260\321\201\320\277\320\276\320\267\320\275\320\260\320\275\320\276", 0));
         markLabel->setText(QApplication::translate("TestingSystem", "\320\235\320\265\321\200\320\260\321\201\320\277\320\276\320\267\320\275\320\260\320\275\320\276", 0));
         menu->setTitle(QApplication::translate("TestingSystem", "\320\244\320\260\320\271\320\273", 0));
-        menu_2->setTitle(QApplication::translate("TestingSystem", "\320\235\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270", 0));
         menu_3->setTitle(QApplication::translate("TestingSystem", "\320\242\320\265\321\201\321\202\321\213 \320\270 \321\201\321\202\321\203\320\264\320\265\320\275\321\202\321\213", 0));
         menu_4->setTitle(QApplication::translate("TestingSystem", "\320\241\320\277\321\200\320\260\320\262\320\272\320\260", 0));
     } // retranslateUi

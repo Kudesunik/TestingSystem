@@ -2,6 +2,7 @@
 #include "PNGConverter.h"
 #include <QFileDialog>
 #include <iostream>
+#include <fstream>
 #include <math.h>
 
 TestingSystem::TImage imgStruct;
@@ -33,6 +34,7 @@ void TestingSystem::setupGUI() {
     QObject::connect(widget.exitMenu, SIGNAL(triggered()), this, SLOT(exit()));
     QObject::connect(widget.openImageMenu, SIGNAL(triggered()), this, SLOT(loadImage()));
     QObject::connect(widget.loadedImageButton, SIGNAL(clicked()), this, SLOT(showLoadedImage()));
+    QObject::connect(widget.digitalImageButton, SIGNAL(clicked()), this, SLOT(showBinaryImage()));
     QObject::connect(widget.recognizeButton, SIGNAL(clicked()), this, SLOT(recognize()));
 }
 
@@ -41,21 +43,57 @@ void TestingSystem::setupGUI() {
  */
 void TestingSystem::loadImage() {
     logger -> debug("[Loading image] Start...");
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Открыть файл"), "", tr("PNG (*.*)"));
+    
+    widget.loadedImageButton -> setEnabled(false);
+    widget.digitalImageButton -> setEnabled(false);
+    
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Открыть файл"), "", tr("Изображения (*.png *.pbm)"));
     qgs -> setSceneRect(qgs -> sceneRect());
     widget.pictureView -> setScene(qgs);
-    widget.loadedImageButton -> setEnabled(true);
-    filename = fileName.toStdString();
-    logger -> debug("[Loading image] Filename writed: %s", filename.c_str());
-    showLoadedImage();
-    widget.loadedImageButton -> setEnabled(true);
+    (this -> fileName) = fileName.toStdString();
+    
+    showImage(&(this -> fileName));
+    
+    std::string compareStr = ((this -> fileName).substr((this -> fileName).find_last_of(".") + 1, (this -> fileName).length() - 1));
+    
+    if (!compareStr.compare("png")) {
+        logger -> debug("[Loading image] PNG file detected");
+        widget.loadedImageButton -> setEnabled(true);
+    }
+    
+    if (!compareStr.compare("pbm")) {
+        logger -> debug("[Loading image] PBM file detected");
+        (this -> pbmFileName) = fileName.toStdString();
+        widget.digitalImageButton -> setEnabled(true);
+        
+        std::string fileEx = (this -> pbmFileName).substr(0, (this -> pbmFileName).find_last_of(".")).append(".png");
+        
+        logger -> debug("%s", fileEx.c_str());
+        
+        if (fileExists(&fileEx)) {
+            (this -> fileName) = fileEx;
+            widget.loadedImageButton -> setEnabled(true);
+        }
+        else {
+            (this -> fileName) = "";
+        }
+    }
+    
     widget.recognizeButton -> setEnabled(true);
     logger -> debug("[Loading image] Done!");
 }
 
 void TestingSystem::showLoadedImage() {
-    logger -> debug("[Show image] Showing image");
-    qpm.load(QString::fromUtf8(filename.c_str()));
+    showImage(&fileName);
+}
+
+void TestingSystem::showBinaryImage() {
+    showImage(&pbmFileName);
+}
+
+void TestingSystem::showImage(std::string *filename) {
+    logger -> debug("[Show image] Showing image...");
+    qpm.load(QString::fromUtf8((*filename).c_str()));
     qpm = qpm.scaledToHeight(widget.pictureView -> height());
     qpm = qpm.scaledToWidth(widget.pictureView -> width());
     qgs -> addPixmap(qpm);
@@ -64,7 +102,11 @@ void TestingSystem::showLoadedImage() {
 
 void TestingSystem::recognize() {
     logger -> debug("[Recognize] Start recognizing");
-    converter -> convert(filename);
+    if (!pbmFileName.compare("")) {
+        converter -> convert(fileName);
+        writeToPBM();
+    }
+    widget.digitalImageButton -> setEnabled(true);
     logger -> debug("[Recognize] Done!");
 }
 
@@ -82,6 +124,7 @@ void TestingSystem::exit() {
  * @param my
  */
 void TestingSystem::fillTImageStruct(int *img, int mx, int my) {
+    logger -> debug("[Fill TImage Structure] Start filling...");
     int h, w;
     
     imgStruct.mx = mx;
@@ -92,6 +135,41 @@ void TestingSystem::fillTImageStruct(int *img, int mx, int my) {
             imgStruct.img[h][w] = img[h * (mx - 1) + h + w];
         }
     }
+    logger -> debug("[Fill TImage Structure] Done!");
+}
+
+void TestingSystem::writeToPBM() {
+    logger -> debug("[Write structure to PBM file] Start writing...");
+    
+    std::ofstream pbmFile;
+    
+    pbmFileName = fileName.substr(0, fileName.find_last_of(".")).append(".pbm");
+    pbmFile.open(pbmFileName.c_str());
+    
+    pbmFile << "P1" << std::endl;
+    pbmFile << (imgStruct.mx) << " ";
+    pbmFile << (imgStruct.my) << std::endl;
+    
+    int h, w;
+    
+    for (h = 0; h < (imgStruct.my); h++) {
+        for (w = 0; w < (imgStruct.mx); w++) {
+            pbmFile << (imgStruct.img)[h][w] << " ";
+        }
+        pbmFile << "\n";
+    }
+    logger -> debug("[Write structure to PBM file] Done!");
+}
+
+inline bool TestingSystem::fileExists(std::string *fileName) {
+    std::ifstream file((*fileName).c_str());
+    if (file.good()) {
+        file.close();
+        return true;
+    } else {
+        file.close();
+        return false;
+    }   
 }
 
 TestingSystem::~TestingSystem() {

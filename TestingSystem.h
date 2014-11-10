@@ -23,16 +23,21 @@ public:
 public slots:
     void loadImage();
     void showLoadedImage();
+    void showBinaryImage();
     void recognize();
     void exit();
     
 private:
     void setupGUI();
     void clearTImage();
+    void writeToPBM();
+    void showImage(std::string *fileName);
+    inline bool fileExists (std::string *fileName);
     Ui::TestingSystem widget;
     QGraphicsScene *qgs;
     QPixmap qpm;
-    std::string filename;
+    std::string fileName;
+    std::string pbmFileName;
 };
 
 #endif
