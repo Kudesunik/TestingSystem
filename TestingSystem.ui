@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -106,7 +106,7 @@
      <rect>
       <x>440</x>
       <y>10</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -125,7 +125,7 @@
      <rect>
       <x>440</x>
       <y>40</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -142,9 +142,9 @@
    <widget class="QLabel" name="rowsNumLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>10</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -174,9 +174,9 @@
    <widget class="QLabel" name="columnsNumLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>40</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -195,7 +195,7 @@
      <rect>
       <x>440</x>
       <y>80</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -214,7 +214,7 @@
      <rect>
       <x>440</x>
       <y>110</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -233,7 +233,7 @@
      <rect>
       <x>440</x>
       <y>140</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -263,9 +263,9 @@
    <widget class="QLabel" name="groupNumLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>80</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -282,9 +282,9 @@
    <widget class="QLabel" name="studentNumLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>110</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -301,9 +301,9 @@
    <widget class="QLabel" name="testNumLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>140</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -322,7 +322,7 @@
      <rect>
       <x>440</x>
       <y>180</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -341,7 +341,7 @@
      <rect>
       <x>440</x>
       <y>210</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -360,7 +360,7 @@
      <rect>
       <x>440</x>
       <y>240</y>
-      <width>111</width>
+      <width>181</width>
       <height>21</height>
      </rect>
     </property>
@@ -377,9 +377,9 @@
    <widget class="QLabel" name="totalQuestionsLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>180</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -396,9 +396,9 @@
    <widget class="QLabel" name="correctAnswersLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>210</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
@@ -415,9 +415,9 @@
    <widget class="QLabel" name="markLabel">
     <property name="geometry">
      <rect>
-      <x>570</x>
+      <x>640</x>
       <y>240</y>
-      <width>111</width>
+      <width>151</width>
       <height>21</height>
      </rect>
     </property>
