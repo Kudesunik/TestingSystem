@@ -43,7 +43,7 @@ public:
     QAction *addStudentMenu;
     QAction *watchGroupMenu;
     QAction *printMenu;
-    QAction *action;
+    QAction *createImageMenu;
     QWidget *centralwidget;
     QGraphicsView *pictureView;
     QPushButton *digitalImageButton;
@@ -124,9 +124,9 @@ public:
         printMenu = new QAction(TestingSystem);
         printMenu->setObjectName(QStringLiteral("printMenu"));
         printMenu->setEnabled(false);
-        action = new QAction(TestingSystem);
-        action->setObjectName(QStringLiteral("action"));
-        action->setEnabled(false);
+        createImageMenu = new QAction(TestingSystem);
+        createImageMenu->setObjectName(QStringLiteral("createImageMenu"));
+        createImageMenu->setEnabled(true);
         centralwidget = new QWidget(TestingSystem);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         pictureView = new QGraphicsView(centralwidget);
@@ -254,7 +254,7 @@ public:
         menubar->addAction(menu_3->menuAction());
         menubar->addAction(menu_4->menuAction());
         menu->addAction(openImageMenu);
-        menu->addAction(action);
+        menu->addAction(createImageMenu);
         menu->addAction(openResultsMenu);
         menu->addSeparator();
         menu->addAction(saveMenu);
@@ -292,7 +292,7 @@ public:
         addStudentMenu->setText(QApplication::translate("TestingSystem", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\201\321\202\321\203\320\264\320\265\320\275\321\202\320\260...", 0));
         watchGroupMenu->setText(QApplication::translate("TestingSystem", "\320\237\320\276\321\201\320\274\320\276\321\202\321\200\320\265\321\202\321\214 \320\264\320\276\321\201\321\202\321\203\320\277\320\275\321\213\320\265 \320\263\321\200\321\203\320\277\320\277\321\213", 0));
         printMenu->setText(QApplication::translate("TestingSystem", "\320\237\320\265\321\207\320\260\321\202\321\214...", 0));
-        action->setText(QApplication::translate("TestingSystem", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\270\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\320\265", 0));
+        createImageMenu->setText(QApplication::translate("TestingSystem", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\270\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\320\265", 0));
         digitalImageButton->setText(QApplication::translate("TestingSystem", "\320\246\320\270\321\204\321\200\320\276\320\262\320\276\320\271", 0));
         loadedImageButton->setText(QApplication::translate("TestingSystem", "\320\227\320\260\320\263\321\200\321\203\320\266\320\265\320\275\320\275\321\213\320\271", 0));
         recognizedImageButton->setText(QApplication::translate("TestingSystem", "\320\240\320\260\321\201\320\277\320\276\320\267\320\275\320\260\320\275\320\275\321\213\320\271", 0));

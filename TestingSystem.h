@@ -24,15 +24,24 @@ public slots:
     void loadImage();
     void showLoadedImage();
     void showBinaryImage();
+    void createImage();
     void recognize();
     void exit();
     
 private:
     void setupGUI();
     void clearTImage();
+    void readFromPBM();
     void writeToPBM();
-    void showImage(std::string *fileName);
-    inline bool fileExists (std::string *fileName);
+    
+    void writeImage(const int &rows,
+            const int &columns,
+            const int &cellSize,
+            const std::string &ans,
+            std::string fileName);
+    
+    void showImage(const std::string &fileName);
+    inline bool fileExists (const std::string &fileName);
     Ui::TestingSystem widget;
     QGraphicsScene *qgs;
     QPixmap qpm;

@@ -459,7 +459,7 @@
      <string>Файл</string>
     </property>
     <addaction name="openImageMenu"/>
-    <addaction name="action"/>
+    <addaction name="createImageMenu"/>
     <addaction name="openResultsMenu"/>
     <addaction name="separator"/>
     <addaction name="saveMenu"/>
@@ -605,9 +605,9 @@
     <string>Печать...</string>
    </property>
   </action>
-  <action name="action">
+  <action name="createImageMenu">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Создать изображение</string>

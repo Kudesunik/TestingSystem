@@ -44,14 +44,18 @@ OBJECTS_DIR   = build/Debug/MinGW-Windows/
 
 ####### Files
 
-SOURCES       = LodePNG.cpp \
+SOURCES       = CreateImage.cpp \
+		LodePNG.cpp \
 		PNGConverter.cpp \
 		TestingSystem.cpp \
-		Main.cpp moc_TestingSystem.cpp
-OBJECTS       = build/Debug/MinGW-Windows/LodePNG.o \
+		Main.cpp moc_CreateImage.cpp \
+		moc_TestingSystem.cpp
+OBJECTS       = build/Debug/MinGW-Windows/CreateImage.o \
+		build/Debug/MinGW-Windows/LodePNG.o \
 		build/Debug/MinGW-Windows/PNGConverter.o \
 		build/Debug/MinGW-Windows/TestingSystem.o \
 		build/Debug/MinGW-Windows/Main.o \
+		build/Debug/MinGW-Windows/moc_CreateImage.o \
 		build/Debug/MinGW-Windows/moc_TestingSystem.o
 
 DIST          = 
@@ -81,7 +85,7 @@ DESTDIR_TARGET = dist/Debug/MinGW-Windows/TestingSystem.exe
 first: all
 all: qttmp-Debug.mk  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_TestingSystem.h $(OBJECTS) build/Debug/MinGW-Windows/TestingSystem_resource_res.o
+$(DESTDIR_TARGET): ui_CreateImage.h ui_TestingSystem.h $(OBJECTS) build/Debug/MinGW-Windows/TestingSystem_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
 
 build/Debug/MinGW-Windows/TestingSystem_resource_res.o: TestingSystem_resource.rc
@@ -333,7 +337,7 @@ dist:
 	$(ZIP) TestingSystem.zip $(SOURCES) $(DIST) nbproject/nbproject/qt-Debug.pro C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/spec_pre.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/qdevice.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/device_config.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/common/shell-unix.conf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/qconfig.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axbase.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axbase_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axcontainer.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axcontainer_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axserver.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_axserver_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_bluetooth.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_bluetooth_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_bootstrap_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_clucene_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_concurrent.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_concurrent_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_core.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_core_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_declarative.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_declarative_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_designer.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_designer_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_designercomponents_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_enginio.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_enginio_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_gui.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_gui_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_help.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_help_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_multimedia.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_multimedia_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_multimediawidgets.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_multimediawidgets_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_network.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_network_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_nfc.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_nfc_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_opengl.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_opengl_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_openglextensions.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_openglextensions_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_platformsupport_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_positioning.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_positioning_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_printsupport.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_printsupport_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qml.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qml_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qmldevtools_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qmltest.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qmltest_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_quick.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_quick_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_quickparticles_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_quickwidgets.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_quickwidgets_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_script.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_script_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_scripttools.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_scripttools_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_sensors.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_sensors_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_serialport.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_serialport_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_sql.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_sql_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_svg.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_svg_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_testlib.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_testlib_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_uitools.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_uitools_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_webkit.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_webkit_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_webkitwidgets.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_webkitwidgets_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_websockets.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_websockets_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_widgets.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_widgets_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_winextras.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_winextras_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_xml.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_xml_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_xmlpatterns.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/modules/qt_lib_xmlpatterns_private.pri C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/qt_functions.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/qt_config.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/win32/qt_config.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/win32-g++/qmake.conf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/spec_post.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/exclusive_builds.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/default_pre.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/win32/default_pre.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/resolve_config.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/default_post.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/win32/rtti.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/precompile_header.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/warn_on.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/qt.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/resources.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/moc.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/win32/opengl.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/uic.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/win32/windows.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/testcase_targets.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/exceptions.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/yacc.prf C:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/features/lex.prf nbproject/qt-Debug.pro c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/qtmaind.prl c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/Qt5Cored.prl c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/Qt5Widgetsd.prl c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/Qt5Guid.prl c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/libEGLd.prl c:/C/qt-5.3.1-x64-mingw482r4-seh/lib/libGLESv2d.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) build/Debug/MinGW-Windows/LodePNG.o build/Debug/MinGW-Windows/PNGConverter.o build/Debug/MinGW-Windows/TestingSystem.o build/Debug/MinGW-Windows/Main.o build/Debug/MinGW-Windows/moc_TestingSystem.o
+	-$(DEL_FILE) build/Debug/MinGW-Windows/CreateImage.o build/Debug/MinGW-Windows/LodePNG.o build/Debug/MinGW-Windows/PNGConverter.o build/Debug/MinGW-Windows/TestingSystem.o build/Debug/MinGW-Windows/Main.o build/Debug/MinGW-Windows/moc_CreateImage.o build/Debug/MinGW-Windows/moc_TestingSystem.o
 	-$(DEL_FILE) build/Debug/MinGW-Windows/TestingSystem_resource_res.o
 
 distclean: clean 
@@ -350,18 +354,25 @@ compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_TestingSystem.cpp
+compiler_moc_header_make_all: moc_CreateImage.cpp moc_TestingSystem.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_TestingSystem.cpp
+	-$(DEL_FILE) moc_CreateImage.cpp moc_TestingSystem.cpp
+moc_CreateImage.cpp: ui_CreateImage.h \
+		CreateImage.h
+	'c:\C\qt-5.3.1-x64-mingw482r4-seh\bin\moc.exe' $(DEFINES) -D__GNUC__ -DWIN32 -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/win32-g++ -IG:/Programming/TestingSystem/nbproject -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtGui -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtANGLE -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtCore -I. CreateImage.h -o moc_CreateImage.cpp
+
 moc_TestingSystem.cpp: ui_TestingSystem.h \
 		TestingSystem.h
 	'c:\C\qt-5.3.1-x64-mingw482r4-seh\bin\moc.exe' $(DEFINES) -D__GNUC__ -DWIN32 -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/mkspecs/win32-g++ -IG:/Programming/TestingSystem/nbproject -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtGui -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtANGLE -Ic:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtCore -I. TestingSystem.h -o moc_TestingSystem.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_TestingSystem.h
+compiler_uic_make_all: ui_CreateImage.h ui_TestingSystem.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_TestingSystem.h
+	-$(DEL_FILE) ui_CreateImage.h ui_TestingSystem.h
+ui_CreateImage.h: CreateImage.ui
+	c:/C/qt-5.3.1-x64-mingw482r4-seh/bin/uic.exe CreateImage.ui -o ui_CreateImage.h
+
 ui_TestingSystem.h: TestingSystem.ui
 	c:/C/qt-5.3.1-x64-mingw482r4-seh/bin/uic.exe TestingSystem.ui -o ui_TestingSystem.h
 
@@ -377,6 +388,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
+build/Debug/MinGW-Windows/CreateImage.o: CreateImage.cpp CreateImage.h \
+		ui_CreateImage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/CreateImage.o CreateImage.cpp
+
 build/Debug/MinGW-Windows/LodePNG.o: LodePNG.cpp LodePNG.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/LodePNG.o LodePNG.cpp
 
@@ -390,6 +405,8 @@ build/Debug/MinGW-Windows/TestingSystem.o: TestingSystem.cpp TestingSystem.h \
 		ui_TestingSystem.h \
 		PNGConverter.h \
 		LodePNG.h \
+		CreateImage.h \
+		ui_CreateImage.h \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets/QFileDialog \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets/qfiledialog.h \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtCore/qdir.h \
@@ -493,7 +510,8 @@ build/Debug/MinGW-Windows/TestingSystem.o: TestingSystem.cpp TestingSystem.h \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtCore/qset.h \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtCore/qcontiguouscache.h \
 		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtGui/qvector2d.h \
-		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtGui/qtouchdevice.h
+		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtGui/qtouchdevice.h \
+		C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets/QDialog
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/TestingSystem.o TestingSystem.cpp
 
 build/Debug/MinGW-Windows/Main.o: Main.cpp C:/C/qt-5.3.1-x64-mingw482r4-seh/include/QtWidgets/QApplication \
@@ -605,6 +623,9 @@ build/Debug/MinGW-Windows/Main.o: Main.cpp C:/C/qt-5.3.1-x64-mingw482r4-seh/incl
 		TestingSystem.h \
 		ui_TestingSystem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/Main.o Main.cpp
+
+build/Debug/MinGW-Windows/moc_CreateImage.o: moc_CreateImage.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/moc_CreateImage.o moc_CreateImage.cpp
 
 build/Debug/MinGW-Windows/moc_TestingSystem.o: moc_TestingSystem.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/MinGW-Windows/moc_TestingSystem.o moc_TestingSystem.cpp

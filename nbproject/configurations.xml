@@ -4,14 +4,17 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>G:/Programming/TestingSystem/CreateImage.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/LodePNG.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/PNGConverter.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/TestingSystem.h</itemPath>
+      <itemPath>G:/Programming/TestingSystem/ui_CreateImage.h</itemPath>
       <itemPath>G:/Programming/TestingSystem/ui_TestingSystem.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>G:/Programming/TestingSystem/CreateImage.ui</itemPath>
       <itemPath>G:/Programming/TestingSystem/LICENSE</itemPath>
       <itemPath>G:/Programming/TestingSystem/README.md</itemPath>
       <itemPath>G:/Programming/TestingSystem/TestingSystem.ui</itemPath>
@@ -21,6 +24,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>G:/Programming/TestingSystem/CreateImage.cpp</itemPath>
       <itemPath>G:/Programming/TestingSystem/LodePNG.cpp</itemPath>
       <itemPath>Main.cpp</itemPath>
       <itemPath>G:/Programming/TestingSystem/PNGConverter.cpp</itemPath>
@@ -59,6 +63,21 @@
       </qt>
       <compileType>
       </compileType>
+      <item path="G:/Programming/TestingSystem/CreateImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/CreateImage.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/CreateImage.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="G:/Programming/TestingSystem/LICENSE"
             ex="false"
             tool="3"
@@ -110,6 +129,11 @@
             flavor2="0">
       </item>
       <item path="G:/Programming/TestingSystem/nbproject/qt-Release.pro"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/ui_CreateImage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -154,6 +178,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="G:/Programming/TestingSystem/CreateImage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/CreateImage.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/CreateImage.ui"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="G:/Programming/TestingSystem/LICENSE"
             ex="false"
             tool="3"
@@ -205,6 +244,11 @@
             flavor2="0">
       </item>
       <item path="G:/Programming/TestingSystem/nbproject/qt-Release.pro"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="G:/Programming/TestingSystem/ui_CreateImage.h"
             ex="false"
             tool="3"
             flavor2="0">
