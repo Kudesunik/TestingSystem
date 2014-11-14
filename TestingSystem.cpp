@@ -202,6 +202,7 @@ void TestingSystem::recognize() {
     converter -> convert(fileName);
     writeToPBM();
     widget.digitalImageButton -> setEnabled(true);
+    showBinaryImage();
     logger -> debug("[Recognize] Done!");
 }
 
