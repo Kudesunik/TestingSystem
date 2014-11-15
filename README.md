@@ -10,12 +10,11 @@ This is training project. It is not intended to be used for specific purposes. P
 
 This is Qt C++ project.
 
-Ways:
+1. Enter the root directory of the project.
 
-1. Automatic build on NetBeans with Qt plugin. 
-2. Build with command in windows cmd: make.exe -f Makefile CONF=Debug QMAKE="Your path to QMake". Need MinGW. 
-3. QtCreator IDE (should be the simplest way, but i didn't test it).
-4. Your own way :D
+2. Type `qmake compile.pro` to create Makefile.
+
+3. Type `make` or `make all` to compile project.
 
 ### Documentation
 Documentation not available.
