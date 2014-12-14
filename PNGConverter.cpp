@@ -56,7 +56,7 @@ void PNGConverter::convert(std::string filename) {
             for (rgbaIter = 0; rgbaIter < 3; rgbaIter++) {
                 data += (int)image[(((pWidth - 1) * heightIter + heightIter + widthIter) * 4) + rgbaIter];
             }
-            if (data > 250) {
+            if (data > 200) {
                 mid[n] = 0;
             }
             else {

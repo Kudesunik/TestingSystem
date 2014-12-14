@@ -140,6 +140,11 @@ void TestingSystem::loadImage() {
             "",
             tr("Изображения (*.png *.pbm)"));
     
+    if (fileName.isEmpty()) {
+        logger -> debug("[Loading image] Cancelled");
+        return;
+    }
+    
     qgs -> setSceneRect(qgs -> sceneRect());
     widget.pictureView -> setScene(qgs);
     (this -> fileName) = fileName.toStdString();
@@ -199,11 +204,163 @@ void TestingSystem::showImage(const std::string &filename) {
 
 void TestingSystem::recognize() {
     logger -> debug("[Recognize] Start recognizing");
-    converter -> convert(fileName);
-    writeToPBM();
-    widget.digitalImageButton -> setEnabled(true);
-    showBinaryImage();
+    
+    if (fileName != "") {
+        converter -> convert(fileName);
+        writeToPBM();
+        widget.digitalImageButton -> setEnabled(true);
+        showBinaryImage();
+    }
+    
+    int arr[100];
+    
+    int ansNum = findAnswers(arr);
+    
+    widget.groupNumLabel -> setNum(arr[0]);
+    widget.studentNumLabel -> setNum(arr[1]);
+    widget.testNumLabel -> setNum(arr[2]);
+    widget.totalQuestionsLabel -> setNum(ansNum - 3);
+    
     logger -> debug("[Recognize] Done!");
+}
+
+int TestingSystem::findAnswers(int* arr) {
+    logger -> debug("[Detect answers] Start...");
+    
+    int cellSize = calculateCellSize();
+    
+    int h, w, hAns, wAns, hTopAns = 0, wTopAns = 0, hBotAns = 0, wBotAns = 0, counter = 0;
+    
+    for (h = 0; h < imgStruct.my; h++) {
+        for (w = 0; w < imgStruct.mx; w++) {
+            counter += imgStruct.img[h][w] + imgStruct.img[h + cellSize][w] +
+                    imgStruct.img[h + 1][w] + imgStruct.img[h + cellSize + 1][w] +
+                    imgStruct.img[h + 2][w] + imgStruct.img[h + cellSize + 2][w];
+        }
+        if (counter >= (imgStruct.mx * 1.5)) {
+            hTopAns = h + 1;
+            break;
+        }
+        counter = 0;
+    }
+    
+    counter = 0;
+    
+    for (w = 0; w < imgStruct.mx; w++) {
+        for (h = 0; h < imgStruct.my; h++) {
+            counter += imgStruct.img[h][w] + imgStruct.img[h][w + cellSize] +
+                    imgStruct.img[h][w + 1] + imgStruct.img[h][w + cellSize + 1] +
+                    imgStruct.img[h][w + 2] + imgStruct.img[h][w + cellSize + 2];
+        }
+        if (counter >= (imgStruct.my * 1.5)) {
+            wTopAns = w + 1;
+            break;
+        }
+        counter = 0;
+    }
+    
+    counter = 0;
+    
+    for (h = imgStruct.my; h > hTopAns; h--) {
+        for (w = imgStruct.mx; w > wTopAns; w--) {
+            counter += imgStruct.img[h][w] + imgStruct.img[h - cellSize][w] +
+                    imgStruct.img[h - 1][w] + imgStruct.img[h - cellSize - 1][w] +
+                    imgStruct.img[h - 2][w] + imgStruct.img[h - cellSize - 2][w];
+        }
+        if (counter >= (imgStruct.mx * 1.5)) {
+            hBotAns = h - 1;
+            break;
+        }
+        counter = 0;
+    }
+    
+    counter = 0;
+    
+    for (w = imgStruct.mx; w > wTopAns; w--) {
+        for (h = imgStruct.my; h > hTopAns; h--) {
+            counter += imgStruct.img[h][w] + imgStruct.img[h][w - cellSize] +
+                    imgStruct.img[h][w - 1] + imgStruct.img[h][w - cellSize - 1] + 
+                    imgStruct.img[h][w - 2] + imgStruct.img[h][w - cellSize - 2];
+        }
+        if (counter >= (imgStruct.my * 1.5)) {
+            wBotAns = w - 1;
+            break;
+        }
+        counter = 0;
+    }
+    
+    int rows = (hBotAns - hTopAns + (cellSize / 2)) / cellSize;
+    int columns = (wBotAns - wTopAns + (cellSize / 2)) / cellSize;
+    
+    widget.rowsNumLabel -> setNum(rows);
+    widget.columnsNumLabel -> setNum(columns);
+    
+    int cellSizeTop = (cellSize / 4);
+    int cellSizeBot = (cellSize * 3 / 4);
+    int comparator = 2;
+    
+    for (counter = 0; counter < rows; counter++) {
+        arr[counter] = 0;
+    }
+    
+    int rowNum = 0;
+    int columnNum = 0;
+    
+    for (h = hTopAns; h < hBotAns; h += cellSize) {
+        columnNum = 0;
+        for (w = wTopAns; w < wBotAns; w += cellSize) {
+            counter = 0;
+            for (hAns = cellSizeTop; hAns < cellSizeBot; hAns++) {
+                for (wAns = cellSizeTop; wAns < cellSizeBot; wAns++) {
+                    counter += imgStruct.img[h + hAns][w + wAns];
+                    imgStruct.img[h + hAns][w + wAns] = 2;
+                }
+            }
+            if (counter >= comparator) {
+                arr[rowNum] = columnNum + 1;
+                rowNum++;
+                break;
+            }
+            else {
+                columnNum++;
+            }
+        }
+    }
+    
+    logger -> debug("[Detect answers] Done!");
+    
+    return rows;
+}
+
+int TestingSystem::calculateCellSize() {
+    logger -> debug("[Calculate cell size] Start recognizing...");
+    
+    int w, h, i, rec;
+    int ws = 0, hs = 0;
+    
+    for (h = 10; h < (imgStruct.my - 10); h++) {
+        for (w = 10; w < (imgStruct.mx - 10); w++) {
+            rec = 0;
+            for (i = 0; i < 5; i++) {
+                rec += imgStruct.img[h + i][w];
+                rec += imgStruct.img[h][w + i];
+            }
+            if (rec >= 8) {
+                if (ws == 0 && hs == 0) {
+                    ws = w; hs = h;
+                    rec = 0;
+                }
+                else {
+                    if (((w - ws) == (h - hs)) && ((h - hs) > 3)) {
+                        return (w - ws);
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+    
+    logger -> debug("[Calculate cell size] Done!");
 }
 
 void TestingSystem::exit() {

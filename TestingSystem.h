@@ -33,6 +33,9 @@ private:
     void clearTImage();
     void readFromPBM();
     void writeToPBM();
+    int calculateCellSize();
+    int findAnswers(int *arr);
+    //void findCorner(int *arr, float *rotation);
     
     void writeImage(const int &rows,
             const int &columns,
@@ -47,6 +50,7 @@ private:
     QPixmap qpm;
     std::string fileName;
     std::string pbmFileName;
+    //float *rotation;
 };
 
 #endif
